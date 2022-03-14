@@ -1,6 +1,7 @@
 package com.example.networking.Api
 
 import com.example.networking.Model.Data
+import com.example.networking.Model.Post
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
