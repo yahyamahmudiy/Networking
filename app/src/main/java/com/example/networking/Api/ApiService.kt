@@ -3,9 +3,7 @@ package com.example.networking.Api
 import com.example.networking.Model.Data
 import com.example.networking.Model.Post
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ApiService {
 
@@ -22,5 +20,8 @@ interface ApiService {
 
     @GET("posts/{id}")
     fun getPhoto(@Path("id")postId:Int):Call<Post>
+
+    @POST("posts")
+    fun createPost(@Body map:HashMap<String,Any>):Call<Post>
 
 }

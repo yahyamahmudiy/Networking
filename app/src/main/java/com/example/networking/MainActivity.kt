@@ -19,9 +19,9 @@ class MainActivity : AppCompatActivity() {
 
         apiService = ApiClient.createService(ApiService::class.java)
 
-        getKey("5881028")
-        getMinMax(0,0.1)
-        initViews()
+        //getKey("5881028")
+        //getMinMax(0,0.1)
+        //initViews()
     }
 
     fun initViews(){
@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
 
         })
     }
-
     fun getMinMax(minPrice:Int,maxPrice:Double){
         apiService.getMaxMin(minPrice,maxPrice).enqueue(object : Callback<Data>{
             override fun onResponse(call: Call<Data>, response: Response<Data>) {
@@ -58,6 +57,15 @@ class MainActivity : AppCompatActivity() {
             override fun onFailure(call: Call<Data>, t: Throwable) {
                 Log.d("@@@", "onFailure: ${t.localizedMessage!!}")
             }
+
+        })
+    }
+
+    fun createPost(title:String,body:String){
+        val map = HashMap<String,Any>()
+        map["title"] = title
+        map["body"] = body
+        apiService.createPost(map).enqueue(object :  {
 
         })
     }
